@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id = "app">
+    <!-- 1、事件调用的方法没有参数 -->
+    <button v-on:click="btn1Click">按钮1</button>
+    <button @click="btn1Click">按钮2</button>
+
+
+    <button @click="btn2Click">按钮3</button>
+
+    <button @click="btn3Click">按钮4</button>
+    <button @click="btn3Click($event,test)">按钮5</button>
+
+
+  </div>
+  
+  <script src= "../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好！',
+      test: 123
+    },
+    methods: {
+      btn1Click(){
+        console.log("我被点击了");
+      },
+      btn2Click(event){
+        console.log("我被点了" + event);
+      },
+      btn3Click(event,test){
+        console.log("点我了" + event + test);
+      }
+    }
+  });
+  </script>
+</body>
+</html>
